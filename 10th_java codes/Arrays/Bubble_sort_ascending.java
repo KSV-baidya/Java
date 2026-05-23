@@ -1,0 +1,42 @@
+//ascending order of array using the bubble sort method
+
+import java.util.Scanner;
+
+public class Bubble_sort_ascending {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+
+        // array input
+        System.out.println("Enter the size of the array");
+        int size = in.nextInt();
+        int[] arr = new int[size];
+        System.out.println("Enter the array elements ");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = in.nextInt();
+        }
+        BS(arr);
+
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+
+    }// mains
+
+    public static void BS(int[] arr) {
+        boolean swapped = false;
+        for (int i = 0; i < arr.length; i++) {
+            // swapped == false
+            for (int j = 1; j < arr.length - i; j++) {
+                if (arr[j] < arr[j - 1]) {
+                    int temp = arr[j];
+                    arr[j] = arr[j - 1];
+                    arr[j - 1] = temp;
+                    swapped = true;
+                }
+            }
+            if (swapped == false) {
+                break;
+            }
+        }
+    }// method
+}
